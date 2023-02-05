@@ -15,3 +15,5 @@ const blogData = [
     post: "REST stands for representational state transfer.",
   },
 ];
+const seedBlog = () => Blog.bulkCreate(blogData);
+module.exports = seedBlog;
