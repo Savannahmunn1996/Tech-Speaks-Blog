@@ -1,3 +1,20 @@
 * {
-  color: red;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background-color: #ffc8a8;
+}
+
+nav {
+  background-color: cornflowerblue;
+}
+header {
+  text-align: center;
+  color: midnightblue;
+}
+.best {
+  text-align: center;
+  color: midnightblue;
 }
