@@ -10,5 +10,5 @@ const userData = [
     password: "duck",
   },
 ];
-const seeduser = () => User.bulkCreate(userData);
-module.exports = seeduser;
+const seedUser = () => User.bulkCreate(userData);
+module.exports = seedUser;

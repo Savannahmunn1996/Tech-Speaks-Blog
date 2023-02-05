@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require(".../config/connection");
+const sequelize = require("../config/connection");
 
 //This is a model for the blog posts
 class Blog extends Model {}
@@ -15,7 +15,7 @@ Blog.init(
       allowNull: false,
     },
     post: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },
