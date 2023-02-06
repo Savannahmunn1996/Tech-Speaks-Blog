@@ -1,1 +1,7 @@
-<h1>dashboard!</h1>
+<nav>
+    <a class="signout" href="/goodbye">Signout</a>
+</nav>
+{{#each blogs}}
+<h3>{{title}}</h3>
+<p>{{post}}</p>
+{{/each}}
