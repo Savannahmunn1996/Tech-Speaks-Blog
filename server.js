@@ -5,7 +5,7 @@ const routes = require("./controllers/");
 const helpers = require("./utils/helpers");
 const sequelize = require("./config/connection");
 const session = require("express-session");
-const Choreographer = require("choreographer-js");
+
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();

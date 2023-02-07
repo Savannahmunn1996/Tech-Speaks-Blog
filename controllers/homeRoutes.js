@@ -1,9 +1,13 @@
 const router = require("express").Router();
 const { Blog } = require("../models");
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    res.render("home", { layout: "main" });
+    const blogData = await Blog.findOne({
+      where: { title: "Sequelize Basics" },
+    });
+    const blog= blogData.get({ plain: true });
+    res.render("home", { layout: "main", blog:blog });
   } catch (err) {
     console.log(err);
     res.status(500).json(error);
