@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
     res.render("home", { layout: "main" });
   } catch (err) {
     console.log(err);
-    res.status(404);
+    res.status(500).json(error);
   }
 });
 
@@ -18,12 +18,17 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { layout: "main", blogs: blogs });
   } catch (err) {
     console.log(err);
-    res.status(404);
+    res.status(500);
   }
 });
 
 router.get("/goodbye", (req, res) => {
-  res.render("goodbye", { layout: "main" });
+  try {
+    res.render("goodbye", { layout: "main" });
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+  }
 });
 
 module.exports = router;
