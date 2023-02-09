@@ -6,11 +6,11 @@ router.get("/", async (req, res) => {
     const blogData = await Blog.findOne({
       where: { title: "Sequelize Basics" },
     });
-    const blog= blogData.get({ plain: true });
-    res.render("home", { layout: "main", blog:blog });
+    const blog = blogData.get({ plain: true });
+    res.render("home", { layout: "main", blog: blog });
   } catch (err) {
     console.log(err);
-    res.status(500).json(error);
+    res.status(404).json(error);
   }
 });
 
@@ -22,16 +22,34 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { layout: "main", blogs: blogs });
   } catch (err) {
     console.log(err);
-    res.status(500);
+    res.status(404);
   }
 });
+
+router.get("/login", (req, res) => {
+  try {
+    res.render("login", { layout: "main" });
+  } catch (err) {
+    console.log(err);
+    res.status(404).json(error);
+  }
+});
+
+router.get("/signup", (req,res)=>{
+    try{
+        res.render("signup", {layout:"main"});
+    } catch(err){
+        console.log(err);
+        res.status(404);
+    }
+})
 
 router.get("/goodbye", (req, res) => {
   try {
     res.render("goodbye", { layout: "main" });
   } catch (err) {
     console.log(err);
-    res.status(500);
+    res.status(404);
   }
 });
 
