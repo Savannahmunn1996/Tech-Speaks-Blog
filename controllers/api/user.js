@@ -15,6 +15,8 @@ user.post("/", async (req, res) => {
       req.session.username = currentUser.username;
       req.session.userId = currentUser.id;
     });
+    res.render("home", { layout: "main", isLoggedIn: req.session.loggedIn });
+    console.log(req.session);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -26,7 +28,7 @@ user.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
@@ -48,11 +50,14 @@ user.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = currentUser.username;
+      req.session.userId = currentUser.id;
 
       res
         .status(200)
         .json({ user: dbUserData, message: "You are now logged in!" });
     });
+    console.log(req.session);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

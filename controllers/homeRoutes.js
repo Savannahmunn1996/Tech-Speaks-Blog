@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Blog } = require("../models");
+const withAuth = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
   try {
@@ -35,18 +36,38 @@ router.get("/login", (req, res) => {
   }
 });
 
-router.get("/signup", (req,res)=>{
-    try{
-        res.render("signup", {layout:"main"});
-    } catch(err){
-        console.log(err);
-        res.status(404);
-    }
-})
+router.get("/signup", (req, res) => {
+  try {
+    res.render("signup", { layout: "main" });
+  } catch (err) {
+    console.log(err);
+    res.status(404);
+  }
+});
 
 router.get("/goodbye", (req, res) => {
   try {
     res.render("goodbye", { layout: "main" });
+  } catch (err) {
+    console.log(err);
+    res.status(404);
+  }
+});
+
+// router.get("/blogging", (req, res) => {
+//   try {
+//     res.render("blogging", { layout: "main" });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(404);
+//   }
+// });
+
+router.get("/blogging/:id", async (req, res) => {
+  try {
+    const blogDeets = await Blog.findByPk(req.params.id);
+    const blog = blogDeets.get({ plain: true });
+    res.render("blogging", { layout: "main", blog: blog });
   } catch (err) {
     console.log(err);
     res.status(404);

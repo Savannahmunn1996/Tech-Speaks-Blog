@@ -3,3 +3,4 @@ const seedBlog = require("./blogData");
 
 seedUser();
 seedBlog();
+seedC();
