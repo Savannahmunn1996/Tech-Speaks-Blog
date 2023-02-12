@@ -63,6 +63,10 @@ user.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
+
 //is this going to the correct route?
 user.post("/goodbye", (req, res) => {
   if (req.session.loggedIn) {
@@ -73,5 +77,9 @@ user.post("/goodbye", (req, res) => {
     res.status(404).end();
   }
 });
+
+
+
+
 
 module.exports = user;

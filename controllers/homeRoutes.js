@@ -74,4 +74,13 @@ router.get("/blogging/:id", async (req, res) => {
   }
 });
 
+router.get("/create", (req, res) => {
+  try {
+    res.render("/createPost", { layout: "main" });
+  } catch (err) {
+    console.log(err);
+    res.status(404).json(error);
+  }
+});
+
 module.exports = router;

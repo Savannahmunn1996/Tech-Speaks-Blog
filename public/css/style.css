@@ -7,8 +7,6 @@ body {
   background-color: #ffc8a8;
   margin: 0;
   padding: 0;
-  
-  
 }
 marquee {
   background-color: aliceblue;
@@ -81,14 +79,34 @@ img {
   color: rgb(90, 90, 213);
 }
 
+#create {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 50px;
+  background-color: dodgerblue;
+  border-color: black;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  border-radius: 9px;
+}
+
+#create:hover {
+  background-color: #5fc7e4;
+}
+
 @media screen and (min-width: 1024px) {
   body {
     background-color: #ffc8a8;
-  }}
+  }
+}
 
-  @media screen and (max-device-width: 640px) {
-    body {
-      width: 400px;
-      height: 200px;
-      background-color: #ffc8a8;
-      color:midnightblue;}}
+@media screen and (max-device-width: 640px) {
+  body {
+    width: 400px;
+    height: 200px;
+    background-color: #ffc8a8;
+    color: midnightblue;
+  }
+}

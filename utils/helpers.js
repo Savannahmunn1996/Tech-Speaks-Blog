@@ -6,8 +6,14 @@ const withAuth = (req, res, next) => {
       next();
     }
   };
+
+
+//  function blogAccess(){
+// Window.location.replace("/blogging")
+//  }
+//  blog.title.addEventlistener("click", blogAccess)
   
-  module.exports = withAuth;
+ module.exports = withAuth;
   
 
 
