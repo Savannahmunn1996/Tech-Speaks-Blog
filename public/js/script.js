@@ -1,4 +1,21 @@
 console.log("hello world");
+var modal = document.getElementById("#myModal");
+var btn = document.getElementById("#feature");
+var span = document.getElementsByClassName(".close")[0];
+
+
+// btn.onclick = function() {
+//     modal.style.display = "block";}
+
+//     span.onclick = function() {
+//         modal.style.display = "none";
+//       }
+
+//       window.onclick = function(event) {
+//         if (event.target == modal) {
+//           modal.style.display = "none";
+//         }
+//       }
 
 // $("#form").submit((event) => {
 //   event.preventDefault();
@@ -31,5 +48,12 @@ $("#form").click(async (event) => {
     response.status(404);
   }
 });
+// this code allows the create a post button on the dashboard page to work
+function gopost() {
+  window.location.replace("/create");
+}
+$("#create").click("click", gopost);
 
-$(#create).addEventListener("click", )
+
+
+

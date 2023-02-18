@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { Blog } = require("../models");
+const { User } = require("../models");
+const { Comment } = require("../models");
 const withAuth = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
@@ -76,11 +78,44 @@ router.get("/blogging/:id", async (req, res) => {
 
 router.get("/create", (req, res) => {
   try {
-    res.render("/createPost", { layout: "main" });
+    res.render("createPost", { layout: "main" });
   } catch (err) {
     console.log(err);
     res.status(404).json(error);
   }
 });
+
+router.post('/dashboard', async (req, res) => {
+  try { 
+    const postData = await Blog.create({
+    title: req.body.title,
+    post: req.body.post,
+    
+  });
+  res.status(200).json(postData)}
+  catch(err){
+    res.status(400).json(err)
+ } });
+
+
+
+// router.post("/dashboard", async (req, res) => {
+//   try {
+//     const title = req.body.fname;
+//     const post = req.body.opentext;
+
+//     // 4. Retrieve the data from the form submission
+
+//     // 5. Save the data to your database
+//     const Blogs = await Blog.create({ title, post });
+
+//     // 6. Retrieve data from database and pass it to Handlebars template
+//     const posts = await Blogs.findAll();
+
+//     res.render("dashboard", { posts });
+//   } catch (err) {
+//     res.status(404).json(error);
+//   }
+// });
 
 module.exports = router;

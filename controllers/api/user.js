@@ -67,7 +67,7 @@ user.post("/login", async (req, res) => {
 
 
 
-//is this going to the correct route?
+
 user.post("/goodbye", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
