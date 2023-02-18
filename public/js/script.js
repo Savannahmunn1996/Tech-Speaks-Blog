@@ -56,4 +56,18 @@ $("#create").click("click", gopost);
 
 
 
+const response = await fetch(`/dashboard`, {
+  method: 'POST',
+  body: JSON.stringify({
+    title,
+    post,
+   
+  }),
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+
+
 
