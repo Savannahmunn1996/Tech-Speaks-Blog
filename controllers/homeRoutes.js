@@ -75,7 +75,7 @@ router.get("/blogging/:id", async (req, res) => {
     res.status(404);
   }
 });
-
+//rendering createPost handlebars page
 router.get("/create", (req, res) => {
   try {
     res.render("createPost", { layout: "main" });
