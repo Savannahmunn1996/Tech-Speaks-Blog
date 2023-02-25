@@ -85,19 +85,28 @@ router.get("/create", (req, res) => {
   }
 });
 
-router.post('/dashboard', async (req, res) => {
-  try { 
+router.post("/posts", async (req, res) => {
+  try {
     const postData = await Blog.create({
-    title: req.body.title,
-    post: req.body.post,
-    
-  });
-  res.status(200).json(postData)}
-  catch(err){
-    res.status(400).json(err)
- } });
+      title: req.body.title,
+      post: req.body.post,
+    });
 
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
+router.post("/comments", async (req, res) => {
+  try {
+    const commentData = await Comment.create({
+      opinion: req.body.opinion,
+    });
+  } catch (err) {
+    res.status(404).json(commentData);
+  }
+});
 
 // router.post("/dashboard", async (req, res) => {
 //   try {

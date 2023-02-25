@@ -12,6 +12,11 @@ Comment.init(
     opinion: {
       type: DataTypes.STRING,
     },
+
+    post: {
+      type: DataTypes.INTEGER,
+      foreignKey: true,
+    },
   },
   {
     sequelize,
